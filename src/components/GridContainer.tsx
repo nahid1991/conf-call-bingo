@@ -5,7 +5,7 @@ import GridContainerPropsInterface from "../interfaces/GridContainerPropsInterfa
 import {GameContext} from "../App";
 
 const GridContainer: FC<GridContainerPropsInterface> = ({rowIndex}): JSX.Element => {
-  const {state} = useContext(GameContext)
+  const {state} = useContext(GameContext);
   const populateCols = (): JSX.Element[] => {
     const cols: JSX.Element[] = [];
     for (let j = 0; j < 5; j++) {
@@ -16,7 +16,6 @@ const GridContainer: FC<GridContainerPropsInterface> = ({rowIndex}): JSX.Element
 
   return (<div className="GridContainer">
     {populateCols()}
-    {/*<Grid />*/}
   </div>);
 }
 

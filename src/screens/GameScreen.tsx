@@ -26,6 +26,8 @@ function GameScreen(): JSX.Element {
           <p style={{display: state.hasWon ? "block" : "none"}}>You've won Conf call bingo.</p>
           <p style={{display: state.hasWon ? "block" : "none"}}>&#128526; &#127942; &#127870; &#128526; &nbsp;<a href="/">Play Again!</a></p>
         </div>
+      </div>
+      <div className="GameScreen">
         {populateScreen()}
       </div>
     </div>

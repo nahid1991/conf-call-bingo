@@ -1,11 +1,10 @@
-import React, {FC, useContext, useRef, useState} from 'react';
+import React, {FC, useContext, useState} from 'react';
 import './Grid.css';
 import GridPropsInterface from "../interfaces/GridPropsInterface";
 import {GameContext} from "../App";
 
 const Grid: FC<GridPropsInterface> = ({bingo, i, j}): JSX.Element => {
   const {state, dispatch} = useContext(GameContext);
-  const myRef = useRef<HTMLDivElement>(null);
   const [beingHovered, setBeingHovered] = useState(false);
   const selected = state.matrix[i][j].isSelected;
   const backgroundImage = {
@@ -22,7 +21,6 @@ const Grid: FC<GridPropsInterface> = ({bingo, i, j}): JSX.Element => {
          onMouseEnter={() => setBeingHovered(true)}
          onMouseLeave={() => setBeingHovered(false)}
          onClick={() => handleSelectionAndCheckWinCondition()}
-         ref={myRef}
          style={((beingHovered && !state.hasWon) || selected) ? {
            ...backgroundImage, padding: (beingHovered && !selected && !state.hasWon) ? "12px 0 12px 0"
              : "0 0 0 0"
