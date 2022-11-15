@@ -8,7 +8,6 @@ export default function GameStateReducer(state: StateInterface, action: WinCondi
   switch (action.type) {
     case "selected":
       newState.matrix[action.i!][action.j!].isSelected = true;
-      console.log(newState.matrix[action.i!][action.j!].isSelected);
       if (newState.matrix[action.i!][action.j!].winCondition) {
         if(CheckWinCondition(newState.matrix)) {
           newState.hasWon = true;
