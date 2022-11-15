@@ -12,13 +12,11 @@ export default function BingoMatrixGenerator(): StateInterface {
     for (let j = 0; j < 5; j++) {
       const newWinCondition: WinConditionInterface = {
         string: randomizedBingos[counter],
-        winCondition: true,
         isSelected: false
       };
       if ((i === 0 || i === 4) || (j === 0 || j === 4)) {
         row.push(newWinCondition);
       } else {
-        newWinCondition.winCondition = false;
         row.push(newWinCondition);
       }
       counter++;
