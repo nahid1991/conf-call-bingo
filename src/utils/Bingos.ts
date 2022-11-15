@@ -1,0 +1,28 @@
+const Bingos: string[] = [
+  '(child noises in the background)',
+  'Hello, hello?',
+  'i need to jump in another call',
+  'can everyone go on mute?',
+  'could you please get close to the mic?',
+  '(load painful/echo feedback)',
+  'Next slide, please.',
+  'can we take this, offline?',
+  'is blabla on the call?',
+  'Could you share these slides afterwards?',
+  'can somebody grant presenter rights?',
+  'sorry, i had problems logging in',
+  'Can you hear us?',
+  '(animal noises in the background)',
+  'sorry i didn\'t find the conference id',
+  'i was having connection issues',
+  'i\'ll have to get back to you',
+  'who just joined?',
+  'sorry, something bla bla with my calendar',
+  'do you see my screen?',
+  'let\'s wait for bla bla',
+  'You will send the minutes?',
+  'sorry, i was on mute.',
+  'can you repeat please?',
+  'can you email that to everyone'
+];
+export default Bingos;

@@ -1,0 +1,19 @@
+.Grid {
+    align-self: auto;
+    flex: 1 1 18%;
+    border: 1px solid gray;
+    height: 100px;
+    width: 100px;
+    cursor: none;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    word-wrap: break-word;
+    line-height: 1em;
+    font-size: 12px;
+    text-align: center;
+    padding: 0 0 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5%;
+}

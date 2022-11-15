@@ -1,0 +1,19 @@
+.GameScreen {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    align-content: center;
+}
+
+.WinAnnounce {
+    width: 80%;
+    text-align: center;
+}
+
+@keyframes colors {
+    0%   {color: red;}
+    25%  {color: yellow;}
+    50%  {color: blue;}
+    100% {color: green;}
+}

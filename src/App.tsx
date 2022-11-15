@@ -1,23 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {createContext, useReducer} from 'react';
 import './App.css';
+import GameScreen from "./screens/GameScreen";
+import GameStateReducer from "./reducers/GameStateReducer";
+import BingoMatrixGenerator from "./supporters/BingoMatrixGenerator";
+import StateInterface from "./interfaces/StateInterface";
+
+const initialState: StateInterface = {matrix: [], hasWon: false, funQuotes: ''};
+
+export const GameContext = createContext<{state: StateInterface, dispatch: React.Dispatch<any>}>({
+  state: initialState,
+  dispatch: () => null
+});
 
 function App() {
+  const [state, dispatch] = useReducer(GameStateReducer, BingoMatrixGenerator());
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <GameContext.Provider value={{state, dispatch}}>
+          <GameScreen/>
+        </GameContext.Provider>
       </header>
     </div>
   );
