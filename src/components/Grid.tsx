@@ -8,13 +8,14 @@ const Grid: FC<GridPropsInterface> = ({bingo, i, j}): JSX.Element => {
   const [beingHovered, setBeingHovered] = useState(false);
   const selected = state.matrix[i][j].isSelected;
   const backgroundImage = {
-    backgroundImage: "url(/assets/stamp.png)",
+    backgroundImage: state.matrix[i][j].unClickable ? "url(/assets/black-stamp.png)" : "url(/assets/stamp.png)",
     backgroundSize: "contain",
     backgroundRepeat: "no-repeat",
     backgroundPosition: "center"
   };
   const handleSelectionAndCheckWinCondition = () => {
-    if(!state.hasWon) dispatch({type: "selected", i: i, j: j, selected: true});
+    console.log(state.matrix[i][j]);
+    if(!state.matrix[i][j].unClickable) dispatch({type: "selected", i: i, j: j, selected: !state.matrix[i][j].isSelected});
   }
   return (
     <div className="Grid"
@@ -22,7 +23,7 @@ const Grid: FC<GridPropsInterface> = ({bingo, i, j}): JSX.Element => {
          onMouseLeave={() => setBeingHovered(false)}
          onClick={() => handleSelectionAndCheckWinCondition()}
          style={((beingHovered && !state.hasWon) || selected) ? {
-           ...backgroundImage, padding: (beingHovered && !selected && !state.hasWon) ? "12px 0 12px 0"
+           ...backgroundImage, padding: (beingHovered && !state.matrix[i][j].unClickable) ? "12px 0 12px 0"
              : "0 0 0 0"
          } : {}}
     >

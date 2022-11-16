@@ -11,14 +11,11 @@ export default function BingoMatrixGenerator(): StateInterface {
     const row: WinConditionInterface[] = [];
     for (let j = 0; j < 5; j++) {
       const newWinCondition: WinConditionInterface = {
-        string: randomizedBingos[counter],
-        isSelected: false
+        string: i === 2 && j === 2 ? "Conf Call Bingo 😇" : randomizedBingos[counter],
+        isSelected: i === 2 && j === 2,
+        unClickable: i === 2 && j === 2
       };
-      if ((i === 0 || i === 4) || (j === 0 || j === 4)) {
-        row.push(newWinCondition);
-      } else {
-        row.push(newWinCondition);
-      }
+      row.push(newWinCondition);
       counter++;
     }
     gameMatrix.push(row);

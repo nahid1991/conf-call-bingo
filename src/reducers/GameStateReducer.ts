@@ -7,10 +7,8 @@ export default function GameStateReducer(state: StateInterface, action: WinCondi
   let newState = {...state};
   switch (action.type) {
     case "selected":
-      newState.matrix[action.i!][action.j!].isSelected = true;
-      if(CheckWinCondition(newState.matrix)) {
-        newState.hasWon = true;
-      }
+      newState.matrix[action.i!][action.j!].isSelected = action.selected;
+      newState.hasWon = CheckWinCondition(newState.matrix);
       newState.funQuotes=FunQuotes[Math.floor((Math.random() * (FunQuotes.length - 1 + 1)))]
       return newState;
     default:
